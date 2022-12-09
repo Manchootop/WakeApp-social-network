@@ -30,7 +30,7 @@ class WakeAppUser(AbstractBaseUser, PermissionsMixin):
     objects = WakeAppUserManager()
 
 
-class WakeAppProfile:
+class WakeAppProfile(models.Model):
     FIRST_NAME_MIN_LENGTH = 2
     FIRST_NAME_MAX_LENGTH = 30
     LAST_NAME_MIN_LENGTH = 2
@@ -41,6 +41,11 @@ class WakeAppProfile:
     DO_NOT_SHOW = 'Do not show'
 
     GENDERS = [(x, x) for x in (MALE, FEMALE, DO_NOT_SHOW)]
+
+    username = models.CharField(
+        max_length=20,
+        unique=True,
+    )
 
     first_name = models.CharField(
         max_length=FIRST_NAME_MAX_LENGTH,

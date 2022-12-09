@@ -1,8 +1,10 @@
 from django.urls import path
 
-from wakeapp.auth_app.views import UserRegistrationView
+from wakeapp.auth_app.views import RegisterView, LoginView, LogoutView
 
 urlpatterns = [
     # path('edit/<int:id>/, EditProfileView.as_view', name='edit profile'),
-    path('register/', UserRegistrationView.as_view(), name='register'),
+    path('register/', RegisterView.as_view(), name='register user'),
+    # path('login/', LoginView.as_view(), name='login user'),
+    # path('logout/', LogoutView.as_view(), name='logout user')
 ]
